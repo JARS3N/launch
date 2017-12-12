@@ -8,7 +8,9 @@ Maintainer: Who to complain to <JARS3N@GMAIL.COM>
 Description: store and launch scripts from seastar
 URL: https://github.com/JARS3N/launch
 Imports:
-        R.utils
+        R.utils,
+        R.methodsS3,
+        R.oo
 License: none
 Encoding: UTF-8
 LazyData: true
