@@ -7,7 +7,8 @@ gui2<-function(){
     source(str)
   }
   onExit<-function(){
-   Exit<<-TRUE
+   Exit<-TRUE
+    return(NULL)
   }
   win1 <- tktoplevel()
   tktitle(win1)<-"Seastar"
@@ -21,7 +22,7 @@ gui2<-function(){
     tkinsert(win1$env$lst, "end", fruit)
 
   tkselection.set(win1$env$lst, 10)
-  tkgrid(win1$env$butOK,win1$env$exits)
+  tkgrid(win1$env$butOK)
   while(EXIT==FALSE){
   }
 }
