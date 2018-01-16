@@ -1,4 +1,4 @@
-gui2<-function(){
+gui<-function(){
   require(tcltk2)
   EXIT<-FALSE
   onOK <- function() {
