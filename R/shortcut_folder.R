@@ -1,10 +1,19 @@
-shortcut_folder<-function(){
-fldr<-file.path(Sys.getenv("USERPROFILE"),"Desktop","seastar")
-  if(!dir.exists(fldr)){
-    dir.create(fldr)
+shortcut_folder <- function(input = FALSE) {
+  if (input) {
+    fldr <- choose.dir()
+    if (is.na(fldr)) stop("No folder selected, stopping.")
+  } else {
+    fldr <- file.path(Sys.getenv("USERPROFILE"), "Desktop", "seastar")
   }
-links<-list.files(system.file(package="seascripts",path="scripts"))
-sapply(links,shortcut_vbs)
-message('seastar shortcuts created in ')
-cat(fldr)
+  
+  if (!dir.exists(fldr)) {
+    dir.create(fldr, recursive = TRUE)
+  }
+  
+  scripts <- list.files(system.file(package = "seascripts", path = "scripts"))
+  
+
+  invisible(lapply(scripts, shortcut_vbs, folder = fldr))
+  
+  message("seastar shortcuts created in:\n", fldr)
 }
