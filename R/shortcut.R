@@ -1,6 +1,4 @@
-shortcut<-function(){
-R.utils::createWindowsShortcut(
-  pathname=file.path(gsub("Documents","Desktop",Sys.getenv()['R_USER']),"seastar.lnk"),
-  target= file.path(system.file(package="launch"),"seastar.exe"),
-  overwrite=T)
+shortcut_vbs <- function(ScriptName, folder) {
+  LNKcreateVBS <- system.file(package = "launch", path = "vbs/shortcut.vbs")
+  shell(paste("Cscript //nologo //B", shQuote(LNKcreateVBS), shQuote(ScriptName), shQuote(folder)))
 }
